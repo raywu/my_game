@@ -39,6 +39,7 @@ class MyGame < Gosu::Window
       #the game is currently stopped
       if button_down? Gosu::Button::KbEscape
         restart_game
+      end
     end
     
   end

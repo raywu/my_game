@@ -1,15 +1,13 @@
 class Ball
   def initialize(game_window)
     @game_window = game_window
-    @x = rand(@game_window.width)
-    @y = 0
+    reset!
     @icon = Gosu::Image.new(@game_window, "images/player1_icon.jpg", true)
   end
   
   def update
     if @y > @game_window.height
-      @x = rand(@game_window.width)
-      @y = 0
+      reset!
     else
       @y = @y + 10
     end
