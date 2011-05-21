@@ -1,3 +1,5 @@
+require 'gosu' 'rubygems'
+
 my_game is a step by step from http://ruby4kids.com/ruby4kids
 Based on gem Gosu http://www.libgosu.org/
 
