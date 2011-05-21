@@ -3,12 +3,14 @@ require 'rubygems'
 require 'gosu'
 require 'player'
 require 'ball'
+require 'monster'
 
 class MyGame < Gosu::Window
   def initialize
     super(600, 400, false)
     @player1 = Player.new(self)
-    @balls = 3.times.map { Ball.new(self) }
+    @balls = 5.times.map { Ball.new(self) }
+    @monsters = 3.times.map { Monster.new(self)}
     @running = true
   end
   
@@ -31,10 +33,16 @@ class MyGame < Gosu::Window
       end
     
       @balls.each { |ball| ball.update }
+      @monsters.each { |monster| monster.update }
     
       if @player1.hit_by? @balls
         stop_game!
       end
+      
+      if @player1.hit_by? @monsters
+        stop_game!
+      end
+        
     else
       #the game is currently stopped
       if button_down? Gosu::Button::KbEscape
@@ -47,6 +55,7 @@ class MyGame < Gosu::Window
   def draw
     @player1.draw
     @balls.each { |ball| ball.draw }
+    @monsters.each { |monster| monster.draw }
   end
   
   def stop_game!
@@ -56,6 +65,7 @@ class MyGame < Gosu::Window
   def restart_game
     @running = true
     @balls.each { |ball| ball.reset! }
+    @monsters.each { |monster| monster.reset! }
   end
 
 end

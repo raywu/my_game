@@ -1,15 +1,15 @@
-class Ball
+class Monster
   def initialize(game_window)
     @game_window = game_window
     reset!
-    @icon = Gosu::Image.new(@game_window, "images/player1_icon.jpg", true)
+    @icon = Gosu::Image.new(@game_window, "images/player3_icon.jpg", true)
   end
   
   def update
     if @y > @game_window.height
       reset!
     else
-      @y = @y + 8
+      @y = @y + 5
     end
   end
   
