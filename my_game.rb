@@ -35,6 +35,10 @@ class MyGame < Gosu::Window
       if @player1.hit_by? @ball
         stop_game!
       end
+    else
+      #the game is currently stopped
+      if button_down? Gosu::Button::KbEscape
+        restart_game
     end
     
   end
@@ -46,6 +50,11 @@ class MyGame < Gosu::Window
   
   def stop_game!
     @running = false
+  end
+  
+  def restart_game
+    @running = true
+    @ball.reset!
   end
 
 end

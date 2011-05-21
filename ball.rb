@@ -8,8 +8,8 @@ class Ball
   
   def update
     if @y > @game_window.height
-      @y = 0
       @x = rand(@game_window.width)
+      @y = 0
     else
       @y = @y + 10
     end
@@ -25,6 +25,11 @@ class Ball
   
   def y
     @y
+  end
+  
+  def reset!
+    @x = rand(@game_window.width)
+    @y = 0
   end
   
 end
